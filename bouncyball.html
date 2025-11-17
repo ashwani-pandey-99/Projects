@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bouncy Ball - Attractive UI</title>
+
+<style>
+    /* Full Page Background */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    /* Container Box */
+    #box {
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    /* Ball */
+    #ball {
+        width: 50px;
+        height: 50px;
+        background: radial-gradient(circle, #ff4444, #b30000);
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        left: 125px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    /* Buttons */
+    button {
+        margin: 10px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        background: #000;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #333;
+        transform: scale(1.05);
+    }
+</style>
+
+</head>
+<body>
+
+<div id="box">
+    <div id="ball"></div>
+</div>
+
+<button onclick="startBounce()">Start</button>
+<button onclick="stopBounce()">Stop</button>
+
+<script>
+    let ball = document.getElementById("ball");
+    let direction = 1;  
+    let position = 0;
+    let intervalId;
+
+    function startBounce() {
+        if (intervalId) return;  
+
+        intervalId = setInterval(() => {
+            position += direction * 5;
+
+            if (position >= 250) direction = -1;  
+            if (position <= 0) direction = 1;    
+
+            ball.style.top = position + "px";
+        }, 20);
+    }
+
+    function stopBounce() {
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+</script>
+
+</body>
+</html>
