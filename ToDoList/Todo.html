@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do List</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" aria-label="To Do App">
+    <header>
+      <div class="logo" aria-hidden="true">TD</div>
+      <div>
+        <h1>To-Do List</h1>
+        <p class="sub">Add tasks, mark done, remove — saved in your browser.</p>
+      </div>
+    </header>
+
+    <!-- Controls: input + add button -->
+    <section class="controls" aria-label="Add task">
+      <input id="taskInput" type="text" placeholder="Add a new task and press Enter or click Add" aria-label="Task description" />
+      <button id="addBtn" class="btn" aria-label="Add task">Add</button>
+    </section>
+
+    <!-- Task list -->
+    <ul id="list" class="list" aria-live="polite" aria-label="Task list"></ul>
+
+    <!-- Footer with stats and clear actions -->
+    <div class="footer">
+      <div id="stats">0 tasks</div>
+      <div>
+        <button id="clearCompleted" class="link-like">Clear completed</button>
+        <button id="clearAll" class="link-like" style="margin-left:8px">Clear all</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
